@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <title>forms project</title>
+        <style>
+            body{
+                width: 100vw;
+                height: 100vh;
+                background-size: cover;
+
+            }
+            table{
+                width: 50%;
+                height: 60%;
+                border-style:inherit;
+                text-align:center;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: 700;
+                color: rgb(10, 10, 10);
+                width:50%;
+                margin-top: 20px;
+                border-radius: 20px;
+                background-color: rgba(64, 42, 82, 0.055);
+                border:2px groove rgb(67, 13, 100);
+            }
+            input[type="text"],input[type="password"]{
+                width: 50%;
+                height: 30px;
+                border-radius: 5px;
+                border: 2px groove rgba(236, 238, 241, 0.801);
+
+            }
+            select{
+                width: 50%;
+                padding: 10px;
+
+            }
+             button:hover{
+                background-color:rgba(220, 229, 233, 0.534);
+                color: rgba(7, 6, 10, 0.526);
+             } 
+             button{
+                width: 70%;
+                padding: 5px;
+                border-radius: 10px;
+                background-color: rgba(14, 82, 19, 0.781);
+                margin-top: 30px;
+
+             }  
+             td>h4{
+                margin: 10px;
+                font-weight: 800;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+             }
+             td{
+                padding:10px;
+             }
+           .cantinaer{
+display: flex;
+
+           }
+        </style>
+
+    </head>
+    <body background="c:\Users\DELL\Desktop\table\IMG_E7120.JPG ">
+       <div class="cantinaer"> 
+         <form onsubmit="handlesubmit(event)" id="forms">
+        <table align="center" >
+            <caption><h2>personal informtion frome</h2></caption>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input id="name" type="text" placeholder="please Enter yor name">
+                </td>
+            </tr>
+            <tr>
+                <td>last Name:</td>
+                <td>
+                    <input id="lastname" type="text" placeholder="please Enter yor last name">
+                </td>
+            </tr><tr>
+                
+            <tr>
+                <td>password:</td>
+                <td>
+                    <input id="password" type="password" placeholder="please Enter yor passeord">
+                </td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" value="Male" name="gender"/> male
+                    <input type="radio" value="female" name="gender"/> female
+                </td>
+            </tr>
+            <tr>
+                <td>education:</td>
+                <td>
+                    <input id="surger" type="checkbox" value="surger" name="surger"/>surger
+                    <input id="nursing"type="checkbox" value="nursing" name="nursing"/> nursing
+                    <input id="midwifery"type="checkbox" value="midwifery" name="midwifery"/> midwifery
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>university:</td>
+             <td>
+                   <select name="university">
+                    <option value="Oxford"Oxford></option>
+                    <option value="Harvard">Harvard</option>
+                    <option value="Cambridge">Cambridge</option>
+                    <option value="Stanford"Stanford></option>
+                   </select>
+                </td>
+            </tr>
+            <tr>
+            <td>your comments:</td>
+            <td>
+               <textarea  cols=40 rows=5 id="textarea" placeholder="please enter your comments hear..."></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td> your files:</td>
+            <td>
+                <label for="file">file</label>
+                <input type=" files" id="files" />
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2">
+                <button type="submit">submit </button>
+            </td>
+        
+        </tr>
+        </table>
+        </form>
+         <table align="center">
+            <caption><h2>result of your inputs</h2></caption>
+            <tr>
+                <td id="nameresult">
+
+                </td>
+            </tr>
+            <tr>
+                <td id="lastnameresult">
+
+                </td> 
+            </tr>
+            <tr>
+                <td id="passwordresult">
+
+                </td>
+            </tr>
+            <tr>
+                <td id="commentresult">
+
+                </td>
+            </tr>
+            <tr>
+                <td id="radioresult">
+
+                </td>
+            </tr>
+         </table>
+        </div>
+       
+      
+    <script>
+function handlesubmit(event){
+event.preventDefault();
+
+var name=document.getElementById('name');
+var lastname=document.getElementById('lastname');
+var password=document.getElementById('password');
+var comments=document.getElementById('textarea');
+var gender=document.getElementsByName('gender');
+// console.log(name.value);
+for(i=0;i<gender.length;i++)
+{
+    if(gender[i].checked===true){
+        document.getElementById('radioresult').innerHTML=`your ${gender[i].value}`
+    }
+}
+
+document.getElementById('nameresult').innerHTML=`<h2> you are name is ${name.value} </h2>`;
+document.getElementById('lastnameresult').innerHTML=`<h2> you are lastname is ${lastname.value} </h2>`;
+document.getElementById('passwordresult').innerHTML=`<h2> you are password is ${password.value} </h2>`;
+document.getElementById('commentresult').innerHTML=`<h2> you are feetback is ${comments.value} </h2>`;
+}
+    </script>
+    </body>
+</html> 
